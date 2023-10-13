@@ -5,12 +5,22 @@
 
 typedef struct
 {
-	int* head;
-	int* back;
+	QueueElement* head;
+	QueueElement* back;
 } Queue;
 
 typedef struct {
 	int value;
-	int* next;
-	int* prev;
-};
+	QueueElement* next;
+	QueueElement* prev;
+} QueueElement;
+
+int front(Queue queue)
+{
+	return queue.head->value;
+}
+
+int back(Queue queue)
+{
+	return queue.back->value;
+}

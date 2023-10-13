@@ -12,7 +12,6 @@ typedef struct
 typedef struct {
 	int value;
 	QueueElement* next;
-	QueueElement* prev;
 } QueueElement;
 
 int front(Queue queue)
@@ -23,4 +22,14 @@ int front(Queue queue)
 int back(Queue queue)
 {
 	return queue.back->value;
+}
+
+void printQueue(Queue queue)
+{
+	QueueElement* current = queue.head;
+	while (current != NULL)
+	{
+		printf("%d ", (*current).value);
+		current = current->next;
+	}
 }

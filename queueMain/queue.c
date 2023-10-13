@@ -3,6 +3,20 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+<<<<<<< HEAD
+=======
+typedef struct
+{
+	QueueElement* head;
+	QueueElement* back;
+} Queue;
+
+typedef struct { 
+	int value;
+	QueueElement* next;
+} QueueElement;
+
+>>>>>>> 8714fd091412b11820db10b69526c61a63a0ca39
 void enqueue(Queue queue, const int value)
 {
 	QueueElement* newQueueElement = malloc(sizeof(QueueElement));
@@ -38,4 +52,14 @@ int front(Queue queue)
 int back(Queue queue)
 {
 	return queue.back->value;
+}
+
+void printQueue(Queue queue)
+{
+	QueueElement* current = queue.head;
+	while (current != NULL)
+	{
+		printf("%d ", (*current).value);
+		current = current->next;
+	}
 }

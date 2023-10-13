@@ -1,6 +1,10 @@
+<<<<<<< HEAD
 ﻿#include "queue.h"
 
 #include <stdio.h>
+=======
+﻿#include <stdio.h>
+>>>>>>> 8714fd091412b11820db10b69526c61a63a0ca39
 
 int main()
 {

@@ -9,23 +9,33 @@ typedef struct
 	QueueElement* back;
 } Queue;
 
-typedef struct {
+typedef struct { 
 	int value;
 	struct QueueElement* next;
 } QueueElement;
 
 void enqueue(Queue queue, const int value)
 {
-	QueueElement* newElem = malloc(sizeof(QueueElement));
-	newElem->value = value;
+	QueueElement* newQueueElement = malloc(sizeof(QueueElement));
+	newQueueElement->value = value;
 	if (!isEmpty(queue))
 	{
-		queue.back->next = newElem;
+		queue.back->next = newQueueElement;
 	}
-	queue.back = newElem;
+	queue.back = newQueueElement;
 }
 
 void dequeue(Queue queue)
 {
-	
+
+}
+
+int front(Queue queue)
+{
+	return queue.head->value;
+}
+
+int back(Queue queue)
+{
+	return queue.back->value;
 }

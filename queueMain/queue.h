@@ -1,7 +1,5 @@
 #pragma once
 
-typedef struct QueueElement QueueElement;
-
 typedef struct Queue Queue;
 
 Queue* createQueue(int* errorCode);

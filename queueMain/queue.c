@@ -3,11 +3,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-struct QueueElement
+typedef struct QueueElement
 {
 	int value;
 	struct QueueElement* next;
-};
+} QueueElement;
 
 struct Queue
 {
@@ -52,8 +52,8 @@ void dequeue(Queue* queue)
 	{
 		return;
 	}
-	QueueElement* queueElementToDequeue = queue->back;
-	queue->back = (queue->back)->next;
+	QueueElement* queueElementToDequeue = queue->head;
+	queue->head = (queue->head)->next;
 	free(queueElementToDequeue);
 }
 

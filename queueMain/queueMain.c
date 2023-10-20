@@ -5,13 +5,13 @@
 int main()
 {
 	int errorCode = 0;
-	Queue* q = createQueue(&errorCode);
-	enqueue(q, 5);
-	printf("%d", front(q));
-	/*enqueue(q, 10);
-	printf("%d", front(q));
-	dequeue(q);
-	printf("%d", front(q));
-	dequeue(q);*/
+	Queue* queue = createQueue(&errorCode);
+	enqueue(queue, 5);
+	enqueue(queue, 8);
+	enqueue(queue, 4);
+	dequeue(queue);
+	printf("%d, %d\n", front(queue), back(queue));
+	printQueue(queue);
+	deleteQueue(queue);
+	printQueue(queue);
 }
-

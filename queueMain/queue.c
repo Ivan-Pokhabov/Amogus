@@ -26,12 +26,12 @@ Queue* createQueue(int* errorCode)
 	return queue;
 }
 
-void enqueue(Queue* queue, const int value)
+int enqueue(Queue* queue, const int value)
 {
 	QueueElement* newQueueElement = calloc(1, sizeof(QueueElement));
 	if (newQueueElement == NULL)
 	{
-		return;
+		return -1;
 	}
 	newQueueElement->value = value;
 	if (isEmpty(queue))
@@ -43,10 +43,15 @@ void enqueue(Queue* queue, const int value)
 		(queue->back)->next = newQueueElement;
 	}
 	queue->back = newQueueElement;
+	return 0;
 }
 
 void dequeue(Queue* queue)
 {
+	if (isEmpty(queue))
+	{
+		return;
+	}
 	QueueElement* queueElementToDequeue = queue->back;
 	queue->back = (queue->back)->next;
 	free(queueElementToDequeue);

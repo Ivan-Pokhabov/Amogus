@@ -15,14 +15,9 @@ struct Queue
 	QueueElement* back;
 };
 
-Queue* createQueue(int* errorCode)
+Queue createQueue(int* errorCode)
 {
-	Queue* queue = calloc(1, sizeof(Queue));
-	*errorCode = 0;
-	if (queue == NULL)
-	{
-		*errorCode = 1;
-	}
+	Queue queue = { .head = NULL, .back = NULL };
 	return queue;
 }
 

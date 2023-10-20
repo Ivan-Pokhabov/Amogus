@@ -18,10 +18,10 @@ struct Queue
 Queue* createQueue(int* errorCode)
 {
 	Queue* queue = calloc(1, sizeof(Queue));
-	errorCode = 0;
+	*errorCode = 0;
 	if (queue == NULL)
 	{
-		errorCode = 1;
+		*errorCode = 1;
 	}
 	return queue;
 }

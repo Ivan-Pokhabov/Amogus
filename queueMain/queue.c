@@ -15,31 +15,36 @@ struct Queue
 	QueueElement* back;
 };
 
-void enqueue(Queue queue, const int value)
+void enqueue(Queue* queue, const int value)
 {
-	QueueElement* newQueueElement = malloc(sizeof(QueueElement));
+	QueueElement* newQueueElement = calloc(1, sizeof(QueueElement));
+	if (newQueueElement == NULL)
+	{
+		//TODO
+		return;	
+	}
 	newQueueElement->value = value;
 	if (isEmpty(queue))
 	{
-		queue.head = newQueueElement;
+		queue->head = newQueueElement;
 	}
 	else
 	{
-		queue.back->next = newQueueElement;
+		queue->back->next = newQueueElement;
 	}
-	queue.back = newQueueElement;
+	queue->back = newQueueElement;
 }
 
-void dequeue(Queue queue)
+void dequeue(Queue* queue)
 {
-	QueueElement* queueElementToDequeue = queue.back;
-	queue.back = queue.back->next;
+	QueueElement* queueElementToDequeue = queue->back;
+	queue->back = queue->back->next;
 	free(queueElementToDequeue);
 }
 
-int isEmpty(Queue queue)
+int isEmpty(Queue* queue)
 {
-	return queue.head == NULL;
+	return queue->head == NULL;
 }
 
 int front(Queue queue)

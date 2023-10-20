@@ -16,5 +16,5 @@ int isEmpty(Queue* queue);
 
 void deleteQueue(Queue* queue);
 
-void printQueue(Queue8 queue);
+void printQueue(Queue* queue);
 

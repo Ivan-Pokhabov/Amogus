@@ -4,7 +4,8 @@
 
 int main()
 {
-	Queue q = {.head = NULL, .back = NULL};
+	int errorCode = 0;
+	Queue* q = createQueue(&errorCode);
 	enqueue(&q, 5);
 	printf("%d", front(&q));
 	/*enqueue(q, 10);

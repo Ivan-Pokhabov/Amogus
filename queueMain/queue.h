@@ -6,7 +6,7 @@ typedef struct Queue Queue;
 
 Queue* createQueue(int* errorCode);
 
-void enqueue(Queue* queue, const int value);
+int enqueue(Queue* queue, const int value);
 
 void dequeue(Queue* queue);
 

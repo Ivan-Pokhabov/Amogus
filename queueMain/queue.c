@@ -15,8 +15,6 @@ struct Queue
 	QueueElement* back;
 };
 
-int enqueue(Queue* queue, const int value)
-
 Queue* createQueue(int* errorCode)
 {
 	Queue* queue = calloc(1, sizeof(Queue));
@@ -28,7 +26,6 @@ Queue* createQueue(int* errorCode)
 	return queue;
 }
 
-void enqueue(Queue* queue, const int value)
 int enqueue(Queue* queue, const int value)
 {
 	QueueElement* newQueueElement = calloc(1, sizeof(QueueElement));

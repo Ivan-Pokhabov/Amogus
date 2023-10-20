@@ -3,27 +3,25 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-<<<<<<< HEAD
-=======
-typedef struct
+struct QueueElement
+{
+	int value;
+	struct QueueElement* next;
+};
+
+struct Queue
 {
 	QueueElement* head;
 	QueueElement* back;
-} Queue;
+};
 
-typedef struct { 
-	int value;
-	QueueElement* next;
-} QueueElement;
-
->>>>>>> 8714fd091412b11820db10b69526c61a63a0ca39
 void enqueue(Queue queue, const int value)
 {
 	QueueElement* newQueueElement = malloc(sizeof(QueueElement));
 	newQueueElement->value = value;
 	if (isEmpty(queue))
 	{
-		queue.front = newQueueElement;
+		queue.head = newQueueElement;
 	}
 	else
 	{
@@ -41,12 +39,12 @@ void dequeue(Queue queue)
 
 int isEmpty(Queue queue)
 {
-	return queue.front == NULL;
+	return queue.head == NULL;
 }
 
 int front(Queue queue)
 {
-	return queue.front->value;
+	return queue.head->value;
 }
 
 int back(Queue queue)

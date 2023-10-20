@@ -1,28 +1,20 @@
 #pragma once
 
-typedef struct QueueElement
-{
-	int value;
-	struct QueueElement* next;
-} QueueElement;
+typedef struct QueueElement QueueElement;
 
-typedef struct Queue
-{
-	QueueElement* front;
-	QueueElement* back;
-} Queue;
+typedef struct Queue Queue;
 
-void enqueue(Queue queue, const int value);
+void enqueue(Queue* queue, const int value);
 
-void dequeue(Queue queue);
+void dequeue(Queue* queue);
 
-int front(Queue queue);
+int front(Queue* queue);
 
-int back(Queue queue);
+int back(Queue* queue);
 
-int isEmpty(Queue queue);
+int isEmpty(Queue* queue);
 
-void deleteQueue(Queue queue);
+void deleteQueue(Queue* queue);
 
-void printQueue(Queue queue);
+void printQueue(Queue8 queue);
 

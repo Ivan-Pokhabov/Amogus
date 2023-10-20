@@ -61,7 +61,14 @@ void printQueue(Queue* queue)
 	QueueElement* current = queue->head;
 	while (current != NULL)
 	{
-		printf("%d ", (*current).value);
+		printf("%d ", current->value);
 		current = current->next;
+	}
+}
+
+void deleteQueue(Queue* queue)
+{
+	while (!isEmpty(queue)) {
+		dequeue(queue);
 	}
 }

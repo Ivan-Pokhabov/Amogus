@@ -52,8 +52,8 @@ void dequeue(Queue* queue)
 	{
 		return;
 	}
-	QueueElement* queueElementToDequeue = queue->back;
-	queue->back = (queue->back)->next;
+	QueueElement* queueElementToDequeue = queue->head;
+	queue->head = (queue->head)->next;
 	free(queueElementToDequeue);
 }
 

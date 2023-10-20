@@ -20,3 +20,4 @@ void deleteQueue(Queue* queue);
 
 void printQueue(Queue* queue);
 
+void deleteQueue(Queue* queue);

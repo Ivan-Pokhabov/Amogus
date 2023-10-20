@@ -29,7 +29,7 @@ int enqueue(Queue* queue, const int value)
 	}
 	else
 	{
-		queue->back->next = newQueueElement;
+		(queue->back)->next = newQueueElement;
 	}
 	queue->back = newQueueElement;
 	return 0;
@@ -42,7 +42,7 @@ void dequeue(Queue* queue)
 		return;
 	}
 	QueueElement* queueElementToDequeue = queue->back;
-	queue->back = queue->back->next;
+	queue->back = (queue->back)->next;
 	free(queueElementToDequeue);
 }
 
@@ -68,5 +68,12 @@ void printQueue(Queue* queue)
 	{
 		printf("%d ", current->value);
 		current = current->next;
+	}
+}
+
+void deleteQueue(Queue* queue)
+{
+	while (!isEmpty(queue)) {
+		dequeue(queue);
 	}
 }

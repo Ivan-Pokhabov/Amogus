@@ -15,15 +15,9 @@ struct Queue
 	QueueElement* back;
 };
 
-Queue* createQueue(int* errorCode)
+Queue* createQueue(void)
 {
-	Queue* queue = calloc(1, sizeof(Queue));
-	*errorCode = 0;
-	if (queue == NULL)
-	{
-		*errorCode = 1;
-	}
-	return queue;
+	return calloc(1, sizeof(Queue));
 }
 
 int enqueue(Queue* queue, const int value)
@@ -46,15 +40,20 @@ int enqueue(Queue* queue, const int value)
 	return 0;
 }
 
-void dequeue(Queue* queue)
+int dequeue(Queue* queue)
 {
 	if (isEmpty(queue))
 	{
-		return;
+		return -1;
 	}
 	QueueElement* queueElementToDequeue = queue->head;
 	queue->head = (queue->head)->next;
 	free(queueElementToDequeue);
+	if (isEmpty(queue))
+	{
+		queue->back = NULL;
+	}
+	return 0;
 }
 
 int isEmpty(Queue* queue)
@@ -74,6 +73,10 @@ int back(Queue* queue)
 
 void printQueue(Queue* queue)
 {
+	if (queue == NULL)
+	{
+		return;
+	}
 	QueueElement* current = queue->head;
 	while (current != NULL)
 	{
@@ -82,9 +85,12 @@ void printQueue(Queue* queue)
 	}
 }
 
-void deleteQueue(Queue* queue)
+void deleteQueue(Queue** queue)
 {
-	while (!isEmpty(queue)) {
-		dequeue(queue);
+	while (!isEmpty(*queue)) 
+	{
+		dequeue(*queue);
 	}
+	free(*queue);
+	*queue = NULL;
 }
